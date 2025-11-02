@@ -5,6 +5,9 @@ const Home = () => {
   return (
     <section id="home" className="home">
       <div className="container">
+        <div className="floating-cat">
+          <span className="cat">🐱</span>
+        </div>
         <div className="home-content">
           <h1>안녕하세요!</h1>
           <h2>저는 개발자<span className="highlight">송원선</span> 입니다</h2>
