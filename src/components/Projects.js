@@ -4,11 +4,11 @@ import '../styles/Projects.css';
 const Projects = () => {
   const projects = [
     {
-      title: "프로젝트 1",
+      title: "AI 식당추천",
       description: "이 프로젝트에 대한 간단한 설명입니다. 사용한 기술과 구현한 기능들을 설명합니다.",
       tech: ["React", "Node.js", "MongoDB"],
-      github: "#",
-      demo: "#"
+      github: "https://github.com/ws1811/restaurant-finder",
+      demo: "https://dh16eh1zyeeii.cloudfront.net"
     },
     {
       title: "프로젝트 2", 
