@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import FloatingDart from './components/FloatingDart';
 
 // 컴포넌트 import
 import Header from './components/Header';
@@ -13,6 +14,7 @@ import Footer from './components/Footer';
 function App() {
   return (
     <div className="App">
+      <FloatingDart />
       <Header />
       <main>
         <Home />
