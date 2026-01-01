@@ -1,0 +1,70 @@
+.project-links a {
+    background-color: blueviolet;
+    color: white;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.project-header h3 {
+  margin: 0;
+}
+
+/* 구분 뱃지 */
+.project-gubun {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.project-gubun.personal {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.project-gubun.team {
+  background-color: #86f09d;
+  color: #000000;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: black;
+  border-radius: 2px;
+}
+
+.project-contribution {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-left: 4px solid #667eea;
+  padding: 12px 16px;
+  margin: 16px 0;
+  border-radius: 8px;
+}
+
+.contribution-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 6px;
+}
+
+.contribution-text {
+  margin: 0;
+  font-size: 14px;
+  color: #2d3748;
+  line-height: 1.5;
+}

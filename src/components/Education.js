@@ -22,7 +22,7 @@ const Education = () => {
 
   const certifications = [
     { name: "정보처리기사", issuer: "한국산업인력공단", date: "2024.06.18" },
-    { name: "SQLD", issuer: "ETS", date: "2023.12.15" },
+    { name: "SQLD", issuer: "한국데이터산업진흥원", date: "2023.12.15" },
     { name: "컴활 1급", issuer: "대한상공회의소", date: "2021.10.22" }
   ];
 

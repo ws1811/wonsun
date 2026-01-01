@@ -7,9 +7,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="container">
-        <div className="logo">
+        {/* <div className="logo">
           <h2>WonSun</h2>
-        </div>
+        </div> */}
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
           <a href="#home" onClick={() => setIsMenuOpen(false)}>Home</a>
           <a href="#Education" onClick={() => setIsMenuOpen(false)}>Education</a>
