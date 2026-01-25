@@ -85,7 +85,7 @@ section {
 
 /* 홈 섹션 */
 .home {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2d52f8 0%, #cc55ae 100%);
   color: white;
   min-height: 100vh;
   display: flex;

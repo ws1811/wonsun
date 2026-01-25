@@ -1,6 +1,5 @@
-/* 프로젝트 버튼 */
 .btn-projects {
-  background-color: #2196F3; /* 파란색 */
+  background-color: #2196F3; 
   color: white;
 }
 
@@ -10,7 +9,7 @@
 
 /* 교육 버튼 */
 .btn-education {
-  background-color: #4ba34e; /* 초록색 */
+  background-color: #4ba34e; 
   color: white;
 }
 
@@ -20,7 +19,7 @@
 
 /* 기술 버튼 */
 .btn-skills {
-  background-color: #db0a9d; /* 오렌지색 */
+  border: white;
   color: white;
 }
 
