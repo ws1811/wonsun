@@ -20,7 +20,7 @@ body {
 /* 헤더 스타일 */
 .header {
   background: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 10px rgba(95, 84, 255, 0.1);
   position: fixed;
   width: 100%;
   top: 0;
@@ -85,7 +85,7 @@ section {
 
 /* 홈 섹션 */
 .home {
-  background: linear-gradient(135deg, #2d52f8 0%, #cc55ae 100%);
+  background: linear-gradient(135deg, #2d52f8 10%, #d54aff 90%);
   color: white;
   min-height: 100vh;
   display: flex;
@@ -186,7 +186,7 @@ section {
 
 /* Skills 섹션 */
 .skills {
-  background: white;
+  background: linear-gradient(135deg, #6d53ff 00%, #d852fa 100%);
 }
 
 .skills-grid {

@@ -68,3 +68,353 @@
   color: #2d3748;
   line-height: 1.5;
 }
+
+.projects {
+  min-height: 100vh;
+  padding: 100px 0;
+  background: #f8f9fa;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #007bff;
+  margin: 20px auto 0;
+  border-radius: 2px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 프로젝트 카드 */
+.project-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: fit-content;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.project-content {
+  padding: 30px;
+}
+
+/* 프로젝트 헤더 */
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 15px;
+}
+
+.project-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+  flex: 1;
+}
+
+.project-gubun {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.project-gubun.personal {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.project-gubun.team {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+/* 프로젝트 설명 */
+.project-content > p {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+/* 기술 태그 */
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tech-tag {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.tech-tag:hover {
+  background: #1976d2;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* 기여도 섹션 */
+.project-contribution {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border-left: 4px solid #007bff;
+}
+
+.contribution-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #007bff;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.contribution-text {
+  margin: 0;
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* 상세보기 토글 버튼 */
+.detail-toggle-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.detail-toggle-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* 상세 내용 */
+.project-details {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 20px;
+  animation: slideDown 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.detail-section {
+  margin-bottom: 25px;
+}
+
+.detail-section:last-child {
+  margin-bottom: 0;
+}
+
+.detail-section h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 기술 선택 이유 리스트 */
+.tech-reason-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tech-reason-list li {
+  background: white;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border-left: 3px solid #007bff;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.tech-reason-list li:last-child {
+  margin-bottom: 0;
+}
+
+.tech-reason-list strong {
+  color: #007bff;
+  font-weight: 600;
+}
+
+/* 트러블슈팅 리스트 */
+.troubleshooting-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.trouble-item {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 3px solid #dc3545;
+}
+
+.trouble-problem {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.trouble-solution {
+  font-size: 0.9rem;
+  color: #555;
+  padding-left: 15px;
+}
+
+.trouble-problem strong {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+.trouble-solution strong {
+  color: #28a745;
+  font-weight: 600;
+}
+
+/* 프로젝트 링크 */
+.project-links {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-small {
+  flex: 1;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid #007bff;
+  background: white;
+  color: #007bff;
+}
+
+.btn-small:hover {
+  background: #007bff;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.btn-small.btn-primary {
+  background: #007bff;
+  color: white;
+}
+
+.btn-small.btn-primary:hover {
+  background: #0056b3;
+  border-color: #0056b3;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .projects {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .project-content {
+    padding: 20px;
+  }
+
+  .project-header h3 {
+    font-size: 1.3rem;
+  }
+
+  .project-details {
+    padding: 20px;
+  }
+
+  .detail-section h4 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-gubun {
+    align-self: flex-start;
+  }
+
+  .project-links {
+    flex-direction: column;
+  }
+}
