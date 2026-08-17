@@ -230,7 +230,6 @@
 /* 경력 상세보기 */
 .exp-detail-btn {
   width: 100%;
-  margin-top: 15px;
   padding: 10px;
   background: white;
   color: #28a745;
@@ -251,7 +250,6 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  margin-top: 15px;
   animation: fadeInDetail 0.3s ease;
 }
 
