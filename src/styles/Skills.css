@@ -1,3 +1,161 @@
-.section-title {
-    color:black;
+.skills .section-title {
+  color: white;
+}
+
+.skills .section-title::after {
+  background: white;
+}
+
+/* 숙련도 대신 경험을 적었다는 안내 문구 */
+.skills-note {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  margin: -40px auto 50px;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.skill-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skill-group {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.skill-group-head {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eceff3;
+}
+
+.skill-group-head h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0 0 6px;
+}
+
+.skill-group-head p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #7b8794;
+  line-height: 1.6;
+}
+
+.skill-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skill-item {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.skill-name {
+  font-weight: 700;
+  color: #6d53ff;
+  font-size: 1rem;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+.skill-experience {
+  margin: 0;
+  color: #555;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  word-break: keep-all;
+}
+
+.skill-links {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.skill-link {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: #f2effe;
+  color: #6d53ff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.skill-link:hover {
+  background: #6d53ff;
+  color: white;
+}
+
+/* 블로그 링크 */
+.skills-blog-link {
+  display: block;
+  width: fit-content;
+  margin: 40px auto 0;
+  padding: 14px 28px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.skills-blog-link:hover {
+  background: white;
+  color: #6d53ff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .skills-note {
+    margin: -20px 20px 35px;
+  }
+
+  .skill-groups {
+    padding: 0 20px;
+  }
+
+  .skill-group {
+    padding: 24px 20px;
+  }
+
+  /* 좁은 화면에서는 기술명을 설명 위로 */
+  .skill-item {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .skill-links {
+    grid-column: 1;
+  }
+
+  .skills-blog-link {
+    margin: 35px 20px 0;
+    width: auto;
+  }
 }

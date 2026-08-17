@@ -4,7 +4,7 @@ import '../styles/Education.css';
 const Education = () => {
   const educationData = [
     {
-      institution: "경희대학교",
+      institution: "경희대학교(서울)",
       degree: "수학과 학사",
       period: "2017.03 - 2023.02",
       status: "졸업",
@@ -13,7 +13,7 @@ const Education = () => {
     },
     {
       institution: "돌마고등학교",
-      degree: "인문계열",
+      degree: "인문계",
       period: "2013.03 - 2016.02",
       status: "졸업",
       description: "수학, 과학 중점 과정"
