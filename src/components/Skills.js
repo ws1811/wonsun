@@ -5,7 +5,7 @@ const Skills = () => {
   const skillGroups = [
     {
       title: "주력 기술",
-      caption: "실무에서 회계 ERP를 개발하고 운영하며 매일 사용합니다.",
+      caption: "매일 사용하는 기술",
       skills: [
         {
           name: "Java",
@@ -53,11 +53,10 @@ const Skills = () => {
     },
     {
       title: "배포 · 협업",
-      caption: "프로젝트를 굴리는 데 사용하는 도구입니다.",
       layout: "category",
       categories: [
-        { label: "형상 관리", tools: ["Git", "GitHub"] },
-        { label: "배포", tools: ["AWS CloudFront", "GitHub Pages", "GitHub Actions"] },
+        { label: "형상 관리", tools: ["Git", "GitHub", "SVN"] },
+        { label: "배포", tools: ["AWS EC2", "AWS S3", "AWS CloudFront", "Nginx", "GitHub Pages", "GitHub Actions"] },
         { label: "이슈 관리", tools: ["Jira"] },
         { label: "문서 · 기획", tools: ["Notion"] },
         { label: "디자인 · 화면 설계", tools: ["Figma"] },
@@ -79,7 +78,7 @@ const Skills = () => {
             <div key={groupIndex} className="skill-group">
               <div className="skill-group-head">
                 <h3>{group.title}</h3>
-                <p>{group.caption}</p>
+                {group.caption && <p>{group.caption}</p>}
               </div>
 
               {group.layout === 'category' ? (

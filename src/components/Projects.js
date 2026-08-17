@@ -9,6 +9,31 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "정보처리기사 CBT",
+      gubun: "개인",
+      description: "정보처리기사 필기 문제를 틈틈이 풀 수 있는 모바일 학습 앱입니다. 프레임워크 없이 순수 JavaScript와 PWA로 만들어 설치 후 오프라인에서도 동작합니다.",
+      contribution: "전체 구현",
+      tech: ["JavaScript", "PWA", "Service Worker", "localStorage"],
+      github: "https://github.com/ws1811/it-processor-quiz-app",
+      details: {
+        techReason: [
+          { tech: "바닐라 JavaScript", reason: "프레임워크 없이 DOM과 상태를 직접 다루며 JS 기본기를 다지려고 선택" },
+          { tech: "PWA / Service Worker", reason: "이동 중에도 풀 수 있어야 해서 설치와 오프라인 캐싱이 필요" },
+          { tech: "localStorage", reason: "서버 없이 진도와 문제별 정답 통계를 기기에 저장" }
+        ],
+        troubleShooting: [
+          {
+            problem: "매번 비슷한 문제만 나와 취약 분야가 개선되지 않음",
+            solution: "문제별·분야별 정답률을 기록하고, 정답률이 낮은 분야에 가중치를 주는 출제 알고리즘을 순수 함수로 분리해 구현. 맞힐수록 가중치가 자동으로 낮아지도록 했습니다."
+          },
+          {
+            problem: "AI로 대량 생성한 문제에 정답이 틀린 항목이 섞여 들어옴",
+            solution: "코드 추적 문제는 Python·Java 코드를 실제로 실행해 출력과 정답 보기를 대조하고, 불일치하거나 중복인 문제는 병합 단계에서 자동 폐기하는 검증 파이프라인을 만들었습니다."
+          }
+        ]
+      }
+    },
+    {
       title: "AI 식당추천",
       gubun: "개인",
       description: "위치, 날씨, 인원 수, 메뉴 선호도 등 다양한 맥락 정보를 종합하여 AI가 최적의 식당을 추천해주는 웹 애플리케이션입니다.",
