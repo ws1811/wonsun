@@ -264,7 +264,7 @@ const Projects = () => {
                 <div className="project-links">
                   <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn btn-small">GitHub</a>
                   {project.demo && (
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="btn btn-small btn-primary">사이트 바로가기</a>
+                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="btn btn-small btn-primary">사이트<br/> 바로가기</a>
                   )}
                 </div>
 
