@@ -212,14 +212,7 @@
   line-height: 1.6;
 }
 
-/* 시연 화면 / 상세보기 버튼 */
-.project-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
+/* 상세보기 토글 버튼 */
 .detail-toggle-btn {
   width: 100%;
   padding: 12px;
@@ -231,6 +224,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-bottom: 15px;
 }
 
 .detail-toggle-btn:hover {
@@ -238,9 +232,11 @@
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
+/* 화면 미리보기 갤러리 버튼 (GitHub 링크 아래) */
 .screenshot-btn {
   width: 100%;
-  padding: 12px;
+  padding: 10px 20px;
+  margin-top: 10px;
   background: white;
   color: #667eea;
   border: 2px solid #667eea;
@@ -397,7 +393,7 @@
   border-color: #0056b3;
 }
 
-/* 시연 화면 갤러리 */
+/* 화면 미리보기 갤러리 */
 .gallery-overlay {
   position: fixed;
   inset: 0;

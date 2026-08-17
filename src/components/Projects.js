@@ -197,23 +197,13 @@ const Projects = () => {
                   <p className="contribution-text">{project.contribution}</p>
                 </div>
 
-                {/* 시연 화면 / 상세보기 버튼 */}
-                <div className="project-actions">
-                  {project.screenshots && (
-                    <button
-                      className="screenshot-btn"
-                      onClick={() => openGallery(project)}
-                    >
-                      📷 시연 화면 ({project.screenshots.length})
-                    </button>
-                  )}
-                  <button
-                    className="detail-toggle-btn"
-                    onClick={() => toggleProject(index)}
-                  >
-                    {expandedProject === index ? '접기 ▲' : '기술 선택 이유 & 트러블슈팅 ▼'}
-                  </button>
-                </div>
+                {/* 상세보기 토글 버튼 */}
+                <button
+                  className="detail-toggle-btn"
+                  onClick={() => toggleProject(index)}
+                >
+                  {expandedProject === index ? '접기 ▲' : '기술 선택 이유 & 트러블슈팅 ▼'}
+                </button>
 
                 {/* 상세 내용 */}
                 {expandedProject === index && (
@@ -250,13 +240,23 @@ const Projects = () => {
                 <div className="project-links">
                   <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn btn-small">GitHub</a>
                 </div>
+
+                {/* 화면 미리보기 갤러리 버튼 */}
+                {project.screenshots && (
+                  <button
+                    className="screenshot-btn"
+                    onClick={() => openGallery(project)}
+                  >
+                    📷 화면 미리보기 ({project.screenshots.length})
+                  </button>
+                )}
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* 시연 화면 갤러리 */}
+      {/* 화면 미리보기 갤러리 */}
       {gallery && (
         <div className="gallery-overlay" onClick={closeGallery}>
           <div className="gallery-modal" onClick={(e) => e.stopPropagation()}>
