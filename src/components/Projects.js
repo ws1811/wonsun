@@ -15,6 +15,7 @@ const Projects = () => {
       contribution: "전체 구현",
       tech: ["JavaScript", "PWA", "Service Worker", "localStorage"],
       github: "https://github.com/ws1811/it-processor-quiz-app",
+      demo: "https://it-processor-quiz-app.vercel.app",
       details: {
         techReason: [
           { tech: "바닐라 JavaScript", reason: "프레임워크 없이 DOM과 상태를 직접 다루며 JS 기본기를 다지려고 선택" },
@@ -37,23 +38,24 @@ const Projects = () => {
       title: "AI 식당추천",
       gubun: "개인",
       description: "위치, 날씨, 인원 수, 메뉴 선호도 등 다양한 맥락 정보를 종합하여 AI가 최적의 식당을 추천해주는 웹 애플리케이션입니다.",
-      contribution: "전체 구현",
-      tech: ["React", "AWS", "Google Gemini AI"],
+      contribution: "전체 구현 (프론트엔드 · 백엔드 · 인프라)",
+      tech: ["React", "Spring Boot", "Java 17", "AWS", "Google Gemini AI"],
       github: "https://github.com/ws1811/restaurant-finder",
       details: {
         techReason: [
-          { tech: "React", reason: "컴포넌트 기반 개발로 재사용성과 유지보수성 향상" },
-          { tech: "AWS", reason: "CloudFront로 CDN 배포, 빠른 글로벌 서비스 제공" },
-          { tech: "Google Gemini AI", reason: "맥락 기반 추천을 위한 고성능 AI 모델 활용" }
+          { tech: "Spring Boot", reason: "톰캣이 내장돼 있고 생태계가 넓어, 실무에서 쓰는 스택 그대로 REST API 서버를 구성" },
+          { tech: "React + Vite", reason: "화면을 컴포넌트로 나눠 관리하고, 빠른 개발 서버로 반복 확인" },
+          { tech: "AWS (EC2 · S3 · CloudFront)", reason: "프론트는 S3에 올려 CloudFront로 배포하고 백엔드는 EC2에 분리 배포해, REST API 통신과 인프라 구성을 직접 경험" },
+          { tech: "Google Gemini AI", reason: "위치·날씨·인원·선호도를 한꺼번에 넘겨 맥락을 반영한 추천을 받기 위해 선택" }
         ],
         troubleShooting: [
           {
-            problem: "AI 응답 정확도 저하",
-            solution: "(처리중)"
+            problem: "날씨 API를 요청마다 호출해 외부 API 호출량이 불필요하게 많음",
+            solution: "Spring Cache(Caffeine)에 30분 TTL을 걸어 같은 지역의 날씨 응답을 재사용하도록 변경"
           },
           {
-            problem: "위치 정보 권한 거부 시 처리",
-            solution: "(처리중)"
+            problem: "프론트와 백엔드를 분리 배포하면서 HTTPS와 CORS 문제 발생",
+            solution: "Nginx 리버스 프록시와 Let's Encrypt 인증서로 백엔드에 HTTPS를 적용하고, 허용 도메인만 접근하도록 CORS 정책을 설정"
           }
         ]
       }
@@ -65,7 +67,6 @@ const Projects = () => {
       contribution: "Firebase Auth 사용 인증 기능, 소셜로그인, 온보딩 페이지",
       tech: ["Kotlin", "Android Studio", "Firebase", "Firestore"],
       github: "https://github.com/Hyundai-4in",
-      demo: "#",
       screenshots: [
         { src: img('hclub-app-1.png'), caption: "비밀번호 찾기 - 이메일/휴대폰 본인인증" },
         { src: img('hclub-app-2.png'), caption: "비밀번호 재설정 메일 발송 완료" }
@@ -91,7 +92,6 @@ const Projects = () => {
       contribution: "스포츠경기 매칭시스템, Elo알고리즘 사용 랭킹시스템, 사내동아리CRUD 일부",
       tech: ["Spring Framework", "Oracle", "MyBatis", "JSP"],
       github: "https://github.com/HyundaiHCLUB",
-      demo: "#",
       screenshots: [
         { src: img('hclub-web-1.png'), caption: "경기 상세 - 팀 레이팅 기반 매칭" },
         { src: img('hclub-web-2.png'), caption: "매치 히스토리 - 종목별 경기 결과" },
@@ -112,7 +112,6 @@ const Projects = () => {
       contribution: "커뮤니티 백엔드 CRUD구현(REST API), 쇼핑몰 상품정보 크롤링",
       tech: ["Spring Framework", "Oracle", "Jsoup", "Selenium"],
       github: "https://github.com/HyundaiFirstProject",
-      demo: "#",
       screenshots: [
         { src: img('pete-1.png'), caption: "메인 페이지 - 리뷰/자랑 게시판 및 인기글" },
         { src: img('pete-2.png'), caption: "리뷰 작성 - 이미지 업로드 및 별점" }
@@ -138,7 +137,6 @@ const Projects = () => {
       contribution: "오프라인 공동구매 게시판 CRUD",
       tech: ["Spring Framework", "Oracle", "Bootstrap"],
       github: "https://github.com/ws1811/together",
-      demo: "#",
       screenshots: [
         { src: img('together-1.png'), caption: "오프라인 공동구매 게시판 - 지역 검색 및 페이지네이션" },
         { src: img('together-2.png'), caption: "공동구매 상세 - Ajax 기반 댓글" },
@@ -265,6 +263,9 @@ const Projects = () => {
 
                 <div className="project-links">
                   <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn btn-small">GitHub</a>
+                  {project.demo && (
+                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="btn btn-small btn-primary">사이트 바로가기</a>
+                  )}
                 </div>
 
                 {/* 화면 미리보기 갤러리 버튼 */}
