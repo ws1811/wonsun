@@ -7,21 +7,21 @@ const Home = () => {
   const highlights = [
     {
       id: 1,
-      icon: "⚡",
-      title: "손익 집계 화면 90초 → 3초",
-      description: "부서·부문·계정별 월별 손익 집계표에서 반복문으로 생성되는 JOIN이 50개를 넘어가 로딩에 90초가 걸렸습니다. 쿼리 구조를 다시 짜고 집계를 메모리 기반 피벗 방식으로 옮겨 3초로 줄였습니다. 느린 화면은 사용자가 참을 일이 아니라 구조를 고칠 일이라는 걸 배운 작업이었습니다."
+      icon: "🙋",
+      title: "쓰는 사람을 먼저 생각합니다",
+      description: "회계 담당자가 매일 여는 화면을 만들다 보니, 요청받은 대로 바로 구현하기보다 이 기능을 실제로 어떤 순서로 쓰는지부터 확인하게 됐습니다. 클릭 한 번을 줄이는 일이 기능을 하나 더 넣는 것보다 나을 때가 많았습니다."
     },
     {
       id: 2,
-      icon: "🏦",
-      title: "은행 CMS 연동 회계처리 개발",
-      description: "은행 CMS 시스템과 연동해 카드·계좌 거래내역 데이터를 수신하고 회계 처리하는 기능을 개발했습니다. 숫자 하나가 틀리면 장부 전체가 틀어지는 영역이라, 동작하는 코드보다 왜 이 값이 맞는지 설명할 수 있는 코드를 먼저 생각하게 됐습니다."
+      icon: "⏱️",
+      title: "기다리게 하지 않는 것도 기능입니다",
+      description: "화면이 느리면 사용자에게는 기능이 없는 것과 크게 다르지 않습니다. 느린 화면은 사용자가 참을 일이 아니라 구조를 고칠 일이라고 생각해서, 눈에 보이는 증상만 덮지 않고 원인을 끝까지 따라가 보는 편입니다."
     },
     {
       id: 3,
-      icon: "🔀",
-      title: "Oracle · MySQL 양쪽 호환 개발",
-      description: "회계원장처럼 복잡한 쿼리를 Oracle과 MySQL 양쪽에서 모두 동작하도록 개발하고 운영했습니다. GROUP BY 처리, 날짜 포맷, NULL 정렬 등 DBMS 간 방언 차이를 하나씩 맞춰가며 두 환경을 함께 유지했습니다."
+      icon: "📝",
+      title: "배운 건 기록해서 남깁니다",
+      description: "막혔던 문제와 풀어낸 과정을 블로그에 정리하고 있습니다. 글로 옮기다 보면 대충 알고 넘어간 부분이 드러나서, 결국 제가 가장 많이 배우게 되더라고요."
     }
   ];
 
@@ -34,14 +34,12 @@ const Home = () => {
       <div className="container">
         <div className="home-content">
           <div className="greeting">
-            <span className="greeting-tag">안녕하세요, </span>
-            <h1>Java 개발자 <span className="highlight">송원선</span>입니다</h1>
+            <h1>안녕하세요, Java 개발자 <span className="highlight">송원선</span>입니다</h1>
           </div>
-          
+
           <div className="intro-section">
             <p className="intro-main">
-              <strong>회계 ERP</strong>를 개발·운영하며,<br/>
-              복잡한 재무 데이터를 <strong>정확하고 빠르게</strong> 다루는 일을 합니다.
+              <strong>회계 ERP</strong>를 개발·운영하며, 쓰는 사람이 편한 시스템을 고민합니다.
             </p>
             
             <div className="intro-highlights">

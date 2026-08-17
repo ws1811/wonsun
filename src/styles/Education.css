@@ -227,6 +227,68 @@
   margin: 0;
 }
 
+/* 경력 상세보기 */
+.exp-detail-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  background: white;
+  color: #28a745;
+  border: 1.5px solid #28a745;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.exp-detail-btn:hover {
+  background: #28a745;
+  color: white;
+}
+
+.exp-achievements {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 15px;
+  animation: fadeInDetail 0.3s ease;
+}
+
+@keyframes fadeInDetail {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.achievement-item {
+  background: #f4faf5;
+  border-left: 3px solid #28a745;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.achievement-title {
+  margin: 0 0 6px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #2c3e50;
+  word-break: keep-all;
+}
+
+.achievement-description {
+  margin: 0;
+  font-size: 0.87rem;
+  color: #666;
+  line-height: 1.65;
+  word-break: keep-all;
+}
+
 /* 자격증 리스트 */
 .cert-list {
   display: flex;

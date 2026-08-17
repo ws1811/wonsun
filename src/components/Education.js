@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Education.css';
 // 학력/교육 섹션
 const Education = () => {
+  const [showAchievements, setShowAchievements] = useState(false);
   const educationData = [
     {
       institution: "경희대학교(서울)",
@@ -39,6 +40,30 @@ const Education = () => {
       type: "정규직",
       description: "회계원장, 전자세금계산서, 은행CMS연동 등"
     },
+  ];
+
+  // 경력 상세 - 실무에서 맡았던 주요 작업
+  const achievements = [
+    {
+      title: "손익 집계 화면 90초 → 3초",
+      description: "부서·부문·계정별 월별 손익 집계표에서 반복문으로 생성되는 JOIN이 50개를 넘어가 로딩에 90초가 걸렸습니다. 쿼리 구조를 다시 짜고 집계를 메모리 기반 피벗 방식으로 옮겨 3초로 줄였습니다."
+    },
+    {
+      title: "은행 CMS 연동 회계처리 개발",
+      description: "은행 CMS 시스템과 연동해 카드·계좌 거래내역 데이터를 수신하고 회계 처리하는 기능을 개발했습니다."
+    },
+    {
+      title: "Oracle · MySQL 양쪽 호환 개발",
+      description: "회계원장처럼 복잡한 쿼리를 Oracle과 MySQL 양쪽에서 모두 동작하도록 개발하고 운영했습니다. GROUP BY 처리, 날짜 포맷, NULL 정렬 등 DBMS 간 방언 차이를 하나씩 맞춰갔습니다."
+    },
+    {
+      title: "포스코기술투자 유연근무제 프로젝트",
+      description: "유연근무제 신청서와 전자결재 문서를 개발하고, 인사시스템의 휴가원 데이터를 연동했습니다. (2024.06 - 2024.08 / Java, JSP, MySQL)"
+    },
+    {
+      title: "우리신용정보 차세대 채권시스템 ERP",
+      description: "ERP 내 손익관리 전 메뉴를 개발하고, 외부업체와 연동해 법인카드 사용내역 데이터를 관리했습니다. (2025.06 - 2025.12 / Java, JSP, Oracle)"
+    }
   ];
 
   return (
@@ -83,6 +108,24 @@ const Education = () => {
                   </div>
                 </div>
               ))}
+
+              <button
+                className="exp-detail-btn"
+                onClick={() => setShowAchievements(!showAchievements)}
+              >
+                {showAchievements ? '접기 ▲' : '상세보기 ▼'}
+              </button>
+
+              {showAchievements && (
+                <div className="exp-achievements">
+                  {achievements.map((item, index) => (
+                    <div key={index} className="achievement-item">
+                      <h5 className="achievement-title">{item.title}</h5>
+                      <p className="achievement-description">{item.description}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 

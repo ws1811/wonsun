@@ -18,6 +18,10 @@ const Skills = () => {
         {
           name: "JSP / Servlet",
           experience: "ERP의 재무 보고 화면을 개발했습니다. 부서·부문·계정별 집계표처럼 계층 구조를 가진 복잡한 화면을 주로 다뤘습니다."
+        },
+        {
+          name: "JavaScript",
+          experience: "ERP 화면의 동적 처리를 담당합니다. 집계표의 계층 펼침·접기, 입력값 검증, Ajax 기반 조회처럼 화면에서 일어나는 상호작용을 구현합니다."
         }
       ]
     },
@@ -49,20 +53,15 @@ const Skills = () => {
     },
     {
       title: "배포 · 협업",
-      caption: "프로젝트를 굴리는 데 필요한 만큼 사용합니다.",
-      skills: [
-        {
-          name: "AWS · GitHub Actions",
-          experience: "AI 식당추천은 CloudFront로 배포했고, 이 포트폴리오는 main 브랜치에 푸시하면 GitHub Actions가 빌드해 GitHub Pages로 자동 배포되도록 구성했습니다."
-        },
-        {
-          name: "Git · GitHub",
-          experience: "팀 프로젝트에서 브랜치를 나눠 작업하고 병합하며 사용했습니다."
-        },
-        {
-          name: "Jira · Notion · Figma",
-          experience: "교육과정 팀 프로젝트에서 이슈 관리와 기획·디자인 공유에 사용했습니다."
-        }
+      caption: "프로젝트를 굴리는 데 사용하는 도구입니다.",
+      layout: "category",
+      categories: [
+        { label: "형상 관리", tools: ["Git", "GitHub"] },
+        { label: "배포", tools: ["AWS CloudFront", "GitHub Pages", "GitHub Actions"] },
+        { label: "이슈 관리", tools: ["Jira"] },
+        { label: "문서 · 기획", tools: ["Notion"] },
+        { label: "디자인 · 화면 설계", tools: ["Figma"] },
+        { label: "IDE", tools: ["IntelliJ IDEA", "Eclipse", "VS Code", "Android Studio"] }
       ]
     }
   ];
@@ -83,29 +82,44 @@ const Skills = () => {
                 <p>{group.caption}</p>
               </div>
 
-              <ul className="skill-list">
-                {group.skills.map((skill, skillIndex) => (
-                  <li key={skillIndex} className="skill-item">
-                    <span className="skill-name">{skill.name}</span>
-                    <p className="skill-experience">{skill.experience}</p>
-                    {skill.links && (
-                      <div className="skill-links">
-                        {skill.links.map((link, linkIndex) => (
-                          <a
-                            key={linkIndex}
-                            href={link.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="skill-link"
-                          >
-                            {link.label} ↗
-                          </a>
+              {group.layout === 'category' ? (
+                <ul className="tool-list">
+                  {group.categories.map((category, categoryIndex) => (
+                    <li key={categoryIndex} className="tool-item">
+                      <span className="tool-label">{category.label}</span>
+                      <div className="tool-tags">
+                        {category.tools.map((tool, toolIndex) => (
+                          <span key={toolIndex} className="tool-tag">{tool}</span>
                         ))}
                       </div>
-                    )}
-                  </li>
-                ))}
-              </ul>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <ul className="skill-list">
+                  {group.skills.map((skill, skillIndex) => (
+                    <li key={skillIndex} className="skill-item">
+                      <span className="skill-name">{skill.name}</span>
+                      <p className="skill-experience">{skill.experience}</p>
+                      {skill.links && (
+                        <div className="skill-links">
+                          {skill.links.map((link, linkIndex) => (
+                            <a
+                              key={linkIndex}
+                              href={link.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="skill-link"
+                            >
+                              {link.label} ↗
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           ))}
         </div>
