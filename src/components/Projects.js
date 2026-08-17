@@ -116,7 +116,8 @@ const Projects = () => {
       demo: "#",
       screenshots: [
         { src: img('together-1.png'), caption: "오프라인 공동구매 게시판 - 지역 검색 및 페이지네이션" },
-        { src: img('together-2.png'), caption: "공동구매 상세 - Ajax 기반 댓글" }
+        { src: img('together-2.png'), caption: "공동구매 상세 - Ajax 기반 댓글" },
+        { src: img('together-3.png'), caption: "관리자 페이지 - 가입자/거래량 통계 및 회원 관리 (회원 개인정보는 블러 처리)" }
       ],
       details: {
         techReason: [
