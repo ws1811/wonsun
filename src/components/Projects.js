@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import '../styles/Projects.css';
+
+const img = (name) => `${process.env.PUBLIC_URL}/images/projects/${name}`;
 
 const Projects = () => {
   const [expandedProject, setExpandedProject] = useState(null);
+  const [gallery, setGallery] = useState(null); // { title, shots, index }
 
   const projects = [
     {
@@ -38,6 +41,10 @@ const Projects = () => {
       tech: ["Kotlin", "Android Studio", "Firebase", "Firestore"],
       github: "https://github.com/Hyundai-4in",
       demo: "#",
+      screenshots: [
+        { src: img('hclub-app-1.png'), caption: "비밀번호 찾기 - 이메일/휴대폰 본인인증" },
+        { src: img('hclub-app-2.png'), caption: "비밀번호 재설정 메일 발송 완료" }
+      ],
       details: {
         techReason: [
           { tech: "Firebase", reason: "프로젝트 기간 1주일로 매우 짧아서 빠르게 구현할 수 있는 Firebase 선택" },
@@ -60,6 +67,11 @@ const Projects = () => {
       tech: ["Spring Framework", "Oracle", "MyBatis", "JSP"],
       github: "https://github.com/HyundaiHCLUB",
       demo: "#",
+      screenshots: [
+        { src: img('hclub-web-1.png'), caption: "경기 상세 - 팀 레이팅 기반 매칭" },
+        { src: img('hclub-web-2.png'), caption: "매치 히스토리 - 종목별 경기 결과" },
+        { src: img('hclub-web-3.png'), caption: "마이페이지 - 레이팅 및 진행중인 매치" }
+      ],
       details: {
         techReason: [
           { tech: "Elo 알고리즘", reason: "게임과 유사하게 Elo 알고리즘을 도입해 비슷한 점수대 유저들끼리 매칭될 수 있도록 공정한 경기 시스템 구현" },
@@ -76,6 +88,10 @@ const Projects = () => {
       tech: ["Spring Framework", "Oracle", "Jsoup", "Selenium"],
       github: "https://github.com/HyundaiFirstProject",
       demo: "#",
+      screenshots: [
+        { src: img('pete-1.png'), caption: "메인 페이지 - 리뷰/자랑 게시판 및 인기글" },
+        { src: img('pete-2.png'), caption: "리뷰 작성 - 이미지 업로드 및 별점" }
+      ],
       details: {
         techReason: [
           { tech: "Jsoup", reason: "정적 페이지 크롤링에 최적화된 경량 라이브러리" },
@@ -98,6 +114,10 @@ const Projects = () => {
       tech: ["Spring Framework", "Oracle", "Bootstrap"],
       github: "https://github.com/ws1811/together",
       demo: "#",
+      screenshots: [
+        { src: img('together-1.png'), caption: "오프라인 공동구매 게시판 - 지역 검색 및 페이지네이션" },
+        { src: img('together-2.png'), caption: "공동구매 상세 - Ajax 기반 댓글" }
+      ],
       details: {
         techReason: [
           { tech: "Spring Framework", reason: "MVC 패턴 기반 체계적인 웹 애플리케이션 구조" },
@@ -117,6 +137,40 @@ const Projects = () => {
   const toggleProject = (index) => {
     setExpandedProject(expandedProject === index ? null : index);
   };
+
+  const openGallery = (project) => {
+    setGallery({ title: project.title, shots: project.screenshots, index: 0 });
+  };
+
+  const closeGallery = useCallback(() => setGallery(null), []);
+
+  const moveGallery = useCallback((step) => {
+    setGallery((prev) => {
+      if (!prev) return prev;
+      const total = prev.shots.length;
+      return { ...prev, index: (prev.index + step + total) % total };
+    });
+  }, []);
+
+  // 갤러리가 열려 있는 동안 키보드 조작 + 배경 스크롤 잠금
+  useEffect(() => {
+    if (!gallery) return;
+
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') closeGallery();
+      else if (e.key === 'ArrowRight') moveGallery(1);
+      else if (e.key === 'ArrowLeft') moveGallery(-1);
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [gallery, closeGallery, moveGallery]);
 
   return (
     <section id="projects" className="projects">
@@ -143,13 +197,23 @@ const Projects = () => {
                   <p className="contribution-text">{project.contribution}</p>
                 </div>
 
-                {/* 상세보기 토글 버튼 */}
-                <button 
-                  className="detail-toggle-btn"
-                  onClick={() => toggleProject(index)}
-                >
-                  {expandedProject === index ? '접기 ▲' : '기술 선택 이유 & 트러블슈팅 ▼'}
-                </button>
+                {/* 시연 화면 / 상세보기 버튼 */}
+                <div className="project-actions">
+                  {project.screenshots && (
+                    <button
+                      className="screenshot-btn"
+                      onClick={() => openGallery(project)}
+                    >
+                      📷 시연 화면 ({project.screenshots.length})
+                    </button>
+                  )}
+                  <button
+                    className="detail-toggle-btn"
+                    onClick={() => toggleProject(index)}
+                  >
+                    {expandedProject === index ? '접기 ▲' : '기술 선택 이유 & 트러블슈팅 ▼'}
+                  </button>
+                </div>
 
                 {/* 상세 내용 */}
                 {expandedProject === index && (
@@ -191,6 +255,47 @@ const Projects = () => {
           ))}
         </div>
       </div>
+
+      {/* 시연 화면 갤러리 */}
+      {gallery && (
+        <div className="gallery-overlay" onClick={closeGallery}>
+          <div className="gallery-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="gallery-header">
+              <h3>{gallery.title} <span className="gallery-counter">{gallery.index + 1} / {gallery.shots.length}</span></h3>
+              <button className="gallery-close" onClick={closeGallery} aria-label="닫기">✕</button>
+            </div>
+
+            <div className="gallery-stage">
+              {gallery.shots.length > 1 && (
+                <button className="gallery-nav prev" onClick={() => moveGallery(-1)} aria-label="이전 화면">‹</button>
+              )}
+              <img
+                src={gallery.shots[gallery.index].src}
+                alt={gallery.shots[gallery.index].caption}
+                className="gallery-image"
+              />
+              {gallery.shots.length > 1 && (
+                <button className="gallery-nav next" onClick={() => moveGallery(1)} aria-label="다음 화면">›</button>
+              )}
+            </div>
+
+            <p className="gallery-caption">{gallery.shots[gallery.index].caption}</p>
+
+            {gallery.shots.length > 1 && (
+              <div className="gallery-dots">
+                {gallery.shots.map((shot, idx) => (
+                  <button
+                    key={idx}
+                    className={`gallery-dot ${idx === gallery.index ? 'active' : ''}`}
+                    onClick={() => setGallery({ ...gallery, index: idx })}
+                    aria-label={`${idx + 1}번째 화면`}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 };
