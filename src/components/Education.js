@@ -55,14 +55,6 @@ const Education = () => {
     {
       title: "Oracle · MySQL 양쪽 호환 개발",
       description: "회계원장처럼 복잡한 쿼리를 Oracle과 MySQL 양쪽에서 모두 동작하도록 개발하고 운영했습니다. GROUP BY 처리, 날짜 포맷, NULL 정렬 등 DBMS 간 방언 차이를 하나씩 맞춰갔습니다."
-    },
-    {
-      title: "포스코기술투자 유연근무제 프로젝트",
-      description: "유연근무제 신청서와 전자결재 문서를 개발하고, 인사시스템의 휴가원 데이터를 연동했습니다. (2024.06 - 2024.08 / Java, JSP, MySQL)"
-    },
-    {
-      title: "우리신용정보 차세대 채권시스템 ERP",
-      description: "ERP 내 손익관리 전 메뉴를 개발하고, 외부업체와 연동해 법인카드 사용내역 데이터를 관리했습니다. (2025.06 - 2025.12 / Java, JSP, Oracle)"
     }
   ];
 

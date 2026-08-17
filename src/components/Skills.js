@@ -123,15 +123,6 @@ const Skills = () => {
             </div>
           ))}
         </div>
-
-        <a
-          href="https://wscodingrecord.tistory.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="skills-blog-link"
-        >
-          📝 공부하고 막혔던 내용은 블로그에 정리하고 있습니다 ↗
-        </a>
       </div>
     </section>
   );

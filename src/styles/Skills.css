@@ -148,29 +148,6 @@
   font-weight: 500;
 }
 
-/* 블로그 링크 */
-.skills-blog-link {
-  display: block;
-  width: fit-content;
-  margin: 40px auto 0;
-  padding: 14px 28px;
-  border-radius: 30px;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  color: white;
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-decoration: none;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.skills-blog-link:hover {
-  background: white;
-  color: #6d53ff;
-  transform: translateY(-2px);
-}
-
 @media (max-width: 768px) {
   .skills-note {
     margin: -20px 20px 35px;
@@ -193,10 +170,5 @@
 
   .skill-links {
     grid-column: 1;
-  }
-
-  .skills-blog-link {
-    margin: 35px 20px 0;
-    width: auto;
   }
 }
